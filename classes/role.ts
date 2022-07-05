@@ -14,18 +14,43 @@ interface  PositionOptions {
       y: number
     }
   }
-  
+interface RoleSprite {
+  idle:PIXI.AnimatedSprite,
+  // run:{
+  //   src:PIXI.Sprite,
+  //   framesMax:Number
+  // },
+  // jump:{
+  //   src:PIXI.Sprite,
+  //   framesMax:Number
+  // },
+  // fall:{
+  //   src:PIXI.Sprite,
+  //   framesMax:Number
+  // },
+  // attack1:{
+  //   src:PIXI.Sprite,
+  //   framesMax:Number
+  // },
+  // tackHit:{
+  //   src:PIXI.Sprite,
+  //   framesMax:Number
+  // },
+  // death:{
+  //   src:PIXI.Sprite,
+  //   framesMax:Number
+  // }
+}
 export default class Role  {
     texture?:PIXI.Texture;
-    idles:PIXI.AnimatedSprite;
     option:PositionOptions;
-    sprite?:PIXI.Sprite;
+    sprite?:RoleSprite;
     height:number;
     width:number;
     attackBox:PIXI.Graphics;
     isAttacking:boolean;
-    constructor(texture:PIXI.Texture | undefined,option:PositionOptions,idles:PIXI.AnimatedSprite) {
-      this.texture = texture;
+    currentState:string;
+    constructor(sprite:RoleSprite,option:PositionOptions) {
       this.option = option
       this.height = 120;
       this.width = 100;
@@ -37,24 +62,25 @@ export default class Role  {
       this.attackBox.x = this.option.position.x;
       this.attackBox.y = this.option.position.y;
       this.isAttacking = false;
-      this.idles = idles;
+      this.currentState = 'idle';
+      this.sprite = sprite
     }
     draw(app:Application) {
       const sprite = new Sprite(this.texture);
        sprite.x = this.option?.position.x || 0;
       this.attackBox.y = sprite.y = this.option?.position.y || 0;
-      this.sprite = sprite;
+      // this.sprite = sprite;
       // pass the sprite to the app
       // paint the attack box
       app.stage.addChild(this.attackBox)
       app.stage.addChild(sprite);
       // paint the idles
-      this.idles.x = sprite.x
-      this.idles.y = sprite.y;
-      this.idles.anchor.set(0.5);
-      this.idles.animationSpeed = 0.1;
-      this.idles.play();
-      app.stage.addChild(this.idles);
+      // this.idles.x = sprite.x
+      // this.idles.y = sprite.y;
+      // this.idles.anchor.set(0.5);
+      // this.idles.animationSpeed = 0.1;
+      // this.idles.play();
+      // app.stage.addChild(this.idles);
     }
     update(app:Application) {
       if (!this.sprite) return 
@@ -77,8 +103,15 @@ export default class Role  {
     }
     animation (app:Application) {
       // update the animation
-      app.ticker.add((delta) =>  this.update(app));
-
+      // app.ticker.add((delta) =>  this.update(app));
+      console.log(this.sprite)
+      let slow = this.sprite[this.currentState]
+      slow.x = 100
+      slow.y = 100
+     
+      app.stage.addChild(slow);
+      slow.play();
+      slow.animationSpeed = 0.1;
       // detect for collision
     }
   }

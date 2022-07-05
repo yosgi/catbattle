@@ -12,10 +12,36 @@ interface PositionOptions {
         y: number
     }
 }
-
+interface RoleSprite {
+    idle:PIXI.AnimatedSprite,
+    // run:{
+    //   src:PIXI.Sprite,
+    //   framesMax:Number
+    // },
+    // jump:{
+    //   src:PIXI.Sprite,
+    //   framesMax:Number
+    // },
+    // fall:{
+    //   src:PIXI.Sprite,
+    //   framesMax:Number
+    // },
+    // attack1:{
+    //   src:PIXI.Sprite,
+    //   framesMax:Number
+    // },
+    // tackHit:{
+    //   src:PIXI.Sprite,
+    //   framesMax:Number
+    // },
+    // death:{
+    //   src:PIXI.Sprite,
+    //   framesMax:Number
+    // }
+  }
 export default class player extends Role {
-    constructor(texture: PIXI.Texture | undefined, option: PositionOptions, idles: PIXI.AnimatedSprite) {
-        super(texture, option, idles);
+    constructor(sprite:RoleSprite,option:PositionOptions) {
+        super(sprite, option);
     }
     animation = (app: Application) => {
         super.animation(app);

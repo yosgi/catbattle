@@ -1,0 +1,95 @@
+{"frames": {
+
+"Meow-Knight_Attack_1.png":
+{
+	"frame": {"x":1,"y":83,"w":32,"h":303},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":11,"w":32,"h":303},
+	"sourceSize": {"w":32,"h":314}
+},
+"Meow-Knight_Attack_2.png":
+{
+	"frame": {"x":317,"y":1,"w":37,"h":135},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":7,"w":37,"h":135},
+	"sourceSize": {"w":48,"h":142}
+},
+"Meow-Knight_Attack_3.png":
+{
+	"frame": {"x":317,"y":40,"w":30,"h":142},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":142},
+	"sourceSize": {"w":32,"h":142}
+},
+"Meow-Knight_Attack_4.png":
+{
+	"frame": {"x":1,"y":1,"w":80,"h":314},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":12,"w":80,"h":314},
+	"sourceSize": {"w":80,"h":326}
+},
+"Meow-Knight_Death.png":
+{
+	"frame": {"x":306,"y":83,"w":25,"h":146},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":146},
+	"sourceSize": {"w":32,"h":146}
+},
+"Meow-Knight_Dodge.png":
+{
+	"frame": {"x":1,"y":134,"w":32,"h":198},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":32,"h":198},
+	"sourceSize": {"w":32,"h":198}
+},
+"Meow-Knight_Idle.png":
+{
+	"frame": {"x":201,"y":151,"w":15,"h":146},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":146},
+	"sourceSize": {"w":16,"h":146}
+},
+"Meow-Knight_Jump.png":
+{
+	"frame": {"x":1,"y":117,"w":15,"h":366},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":15,"h":366},
+	"sourceSize": {"w":16,"h":366}
+},
+"Meow-Knight_Run.png":
+{
+	"frame": {"x":201,"y":134,"w":15,"h":229},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":15,"h":229},
+	"sourceSize": {"w":16,"h":230}
+},
+"Meow-Knight_Take_Damage.png":
+{
+	"frame": {"x":349,"y":151,"w":15,"h":68},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":15,"h":68},
+	"sourceSize": {"w":16,"h":68}
+}},
+"animations": {
+	"Meow-Knight_Attack": ["Meow-Knight_Attack_1.png","Meow-Knight_Attack_2.png","Meow-Knight_Attack_3.png","Meow-Knight_Attack_4.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "meowKnight.png",
+	"format": "RGBA8888",
+	"size": {"w":460,"h":167},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a626e3337dbc4e4f9cb6451e70c7947b:1f9530c721f2ac31db1b162527c29ea7:133a020f35f6505a0509d35e0500cc78$"
+}
+}

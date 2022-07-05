@@ -7,7 +7,6 @@ import * as PIXI from 'pixi.js'
 import { Application } from 'pixi.js'
 import Player from '../classes/player'
 import Monster from '../classes/monster'
-import {Spine} from '@pixi-spine/runtime-4.0';
 const Container = PIXI.Container,
 loader = PIXI.Loader.shared,
 resources = PIXI.Loader.shared.resources,

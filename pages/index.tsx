@@ -18,14 +18,10 @@ Graphics = PIXI.Graphics;
 // get animationsprites from a png file
 const getAnimatedSprites = (texture:PIXI.Texture,frames:Number) => {
   let sprites = [];
-  let height = Math.floor(texture.height / Number(frames));
-  console.log('height',height)
-  console.log('width',texture.width)
-  for (let i = 0; i < frames; i++) {   
-    let childTexture = Object.assign(texture)
-    let rectangle = new Rectangle(32, 32, 16, 22);
-    // // console.log(rectangle)
-    childTexture.frame =  rectangle;
+  let height = texture.height / Number(frames);
+  for (let i = 0; i < frames; i++) {
+    let rectangle = new Rectangle(0,height * i, texture.width, height);
+    let childTexture = new PIXI.Texture(texture, rectangle);
     sprites.push(childTexture);
   }
   return new PIXI.AnimatedSprite(sprites);
@@ -33,18 +29,19 @@ const getAnimatedSprites = (texture:PIXI.Texture,frames:Number) => {
 
 
 const render = function () {
+  console.log('render')
   let app = new Application({width: 1024, height: 576, antialias: true, transparent: false, 
   resolution: 1});
   //Add the canvas that Pixi automatically created for you to the HTML document
   document.body.appendChild(app.view);
   function setup() {
     // get a reference to the sprite sheet you've just loaded:
-    let sheet = loader.resources["images/MeowKnight/MeowKnight.json"];
-    // init player
-    console.log(sheet.textures)
-    if (!sheet || !sheet.textures)
-      return;
-    let idleAnimate = getAnimatedSprites(sheet.textures['Meow-Knight_Idle.png'],6)
+    // let sheet = loader.resources["images/MeowKnight/Meow-Knight_Idle.png"];
+    // // init player
+    // console.log(sheet.textures)
+    // if (!sheet || !sheet.textures)
+    //   return;
+    let idleAnimate = getAnimatedSprites(PIXI.utils.TextureCache['Idle'],6)
     console.log(idleAnimate)
     const player = new Player(
       {
@@ -53,12 +50,14 @@ const render = function () {
     {position: {x: 100, y: 100},velocity: {x: 0, y: 0}});
     // player.draw(app);
     player.animation(app);
-
+      return () => {
+        document.body.removeChild(app.view);
+      }
 
   }
   loader.reset() 
   loader
-    .add("images/MeowKnight/MeowKnight.json")
+    .add("Idle","images/MeowKnight/Meow-Knight_Idle.png")
     .load(setup);
 }
  

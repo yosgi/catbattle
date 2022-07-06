@@ -108,7 +108,6 @@ export default class Role  {
       let slow = this.sprite[this.currentState]
       slow.x = 100
       slow.y = 100
-     
       app.stage.addChild(slow);
       slow.play();
       slow.animationSpeed = 0.1;
